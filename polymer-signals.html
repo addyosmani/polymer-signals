@@ -1,0 +1,38 @@
+<polymer-element name="polymer-signals">
+  <script>
+    (function() {
+     
+      var signals = [];
+
+      function notify(name, data) {
+        var signal = new CustomEvent('my-signal-' + name, {
+          bubbles: true, 
+          detail: data
+        });
+        signals.forEach(function(s) {
+          s.dispatchEvent(signal);
+        });
+      };
+      
+      document.addEventListener('my-signal', function(e) {
+        notify(e.detail.name, e.detail.data);
+      });
+
+      Polymer('polymer-signals', {
+        inserted: function() {
+          signals.push(this);
+        },
+        removed: function() {
+          var i = signals.indexOf(this);
+          if (i >= 0) {
+            signals.splice(i, 1);
+          }
+        }
+      });
+      
+    })();
+  </script>
+</polymer-element>
+
+
+
