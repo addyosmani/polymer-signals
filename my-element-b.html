@@ -1,0 +1,12 @@
+<polymer-element name="my-element-b">
+  <template>
+    <p>[my-elementB] Sup, I am Bar.</p>
+  </template>
+  <script>
+    Polymer('my-element-b', {
+      ready: function() {
+        this.asyncFire('signal', {name: "bar", data: "Bar is ready!"});
+      }
+    });
+  </script>
+</polymer-element>

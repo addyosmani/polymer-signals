@@ -1,13 +1,17 @@
-<polymer-element name="my-app" on-myevent="megaHandler">
+<polymer-element name="my-app">
   <template>
-    <polymer-signals on-signal-foo="fooSignal"></polymer-signals>
+    <p>[myapp] Heyo. I'm myapp.</p>
+    <polymer-signals on-signal-foo="fooSignal" on-signal-bar="barSignal"></polymer-signals>
     <content></content>
   </template>
   <script>
     Polymer('my-app', {
       fooSignal: function(e, detail, sender) {
-        this.innerHTML += '<br>[my-app] received a signal: [' + detail + ']<br>';
-      }
+        this.innerHTML += '<p>[my-app] received a signal: [' + detail + ']</p>';
+      },
+      barSignal: function(e, detail, sender) {
+        this.innerHTML += '<p>[my-app] received a signal: [' + detail + ']</p>';
+      },
     });
   </script>
 </polymer-element>
