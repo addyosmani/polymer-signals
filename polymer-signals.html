@@ -5,7 +5,7 @@
       var signals = [];
 
       function notify(name, data) {
-        var signal = new CustomEvent('my-signal-' + name, {
+        var signal = new CustomEvent('signal-' + name, {
           bubbles: true, 
           detail: data
         });
@@ -14,7 +14,7 @@
         });
       };
       
-      document.addEventListener('my-signal', function(e) {
+      document.addEventListener('signal', function(e) {
         notify(e.detail.name, e.detail.data);
       });
 
