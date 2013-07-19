@@ -7,10 +7,10 @@
   <script>
     Polymer('my-app', {
       fooSignal: function(e, detail, sender) {
-        this.innerHTML += '<p>[my-app] received a signal: [' + detail + ']</p>';
+        this.innerHTML += '<p>[my-app] received a signal: ' + detail + '</p>';
       },
       barSignal: function(e, detail, sender) {
-        this.innerHTML += '<p>[my-app] received a signal: [' + detail + ']</p>';
+        this.innerHTML += '<p>[my-app] received a signal: ' + detail + '</p>';
       },
     });
   </script>
